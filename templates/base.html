@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/player.css' %}">
+
+    <script src="{% static 'js/player.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+
+    <title>{% block title %}Главная{% endblock %}</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1 class="brand"><a href="index.html">Rocket<span>M</span>an</a></h1>
+            <ul>
+                <li><a href="{% url 'main-page' %}">Главная</a></li>
+                <li><a href="{% url 'portfolio' %}">Портфолио</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Контаты</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="overlay"></div>
+    </header>
+
+    {% block content %}
+    <div class="back-main">
+        <div class="back-portfolio-cover"></div>
+    </div>
+    {% endblock  %}
+
+
+    {% comment %} <footer class="footer">
+        <div class="footer-box">
+            <p>Купить трек официально <a
+                    href="https://audiojungle.net/user/redfoxproduction/portfolio">audiojungle.net</a>,
+                залетай в мою группу <a href="https://vk.com/rocketmanstudio">VK</a>.</p>
+        </div>
+    </footer> {% endcomment %}
+
+
+    {% comment %} <header class="masthead mb-auto">
+        <div class="inner">
+            <img class="masthead-brand logo" src="{% static 'images/img/logo.png' %}" alt="logo">
+            <h3 class="masthead-brand">RocketMan</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="{% url 'about-me' %}">Главная</a>
+                <a class="nav-link" href="{% url 'songs' %}">Портфолио</a>
+                <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Заглавие страницы</h1>
+        <p class="lead">Аренда музыкального оборудования</p>
+        <p class="lead">
+            <a href="#" class="btn btn-lg btn-secondary">Сылка на что то</a>
+        </p>
+    </main>
+    {% endblock %}
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Купить трек официально <a
+                    href="https://audiojungle.net/user/redfoxproduction/portfolio">audiojungle.net</a>,
+                залетай в мою группу <a href="https://vk.com/rocketmanstudio">VK</a>.</p>
+        </div>
+    </footer> {% endcomment %}
+</body>
+
+</html>
