@@ -11,7 +11,7 @@
     <div class="music-container">
         <div class="music-header">
             <div class="title">
-                <p>сдесь можно описывать играющий трек сдесь можно описывать играющий трек</p>
+                {% comment %} <img src="{% static 'images/img/logo.png' %}" alt="logo"> {% endcomment %}
             </div>
         </div>
         <div class="music-playlist">
@@ -27,63 +27,47 @@
             </div>
             <div class="music-box">
                 {% for song in songs %}
-                    <div class="music-info">
-                        <div class="music-img">
-                            <img src="{% static 'images/img/logo.png' %}" alt="img">
-                        </div>
-                        <div class="music-name">
-                            <h6>{{ song.title }}</h6>
-                            {% comment %} <p>{{ song.description }}</p> {% endcomment %}
-                            <audio src="{{ song.songfile }}"  controls></audio>
-                        </div>
+                <div class="music-info">
+                    <div class="music-img">
+                        <img src="{% static 'images/img/Avatar.png' %}" alt="img">
                     </div>
-                    <hr>
+                    <div class="music-name {{ song.id }}" onclick='playSong("{{ song.songfile }}", "{{ song.title }}", "{{ song.id }}")'>
+                        <h6>{{ song.title }}</h6>
+                    </div>
+                </div>
+                <hr>
                 {% endfor %}
             </div>
         </div>
-        {% comment %} <div class="music-play">
+        <div class="music-play">
             <div class="play-image">
                 <img src="{% static 'images/img/Avatar.png' %}" alt="">
             </div>
             <div class="play-controls">
                 <div class="controls">
                     <div class="song-name">
-                        <h5>Название играющего</h5>
-                        <p>Описание играющего</p>
+                        <dir class="marquee"><span id="song-title">Rocketman Production</span></dir>
+                        <div id="current-time"></div>
                     </div>
                     <div class="play-icons">
-                        <i class="fa fa-step-backward"></i>
-                        <i class="fa fa-play"></i>
-                        <i class="fa fa-step-forward"></i>
+                        <i class="fa fa-step-backward" onclick='pre()'></i>
+                        <i class="fa fa-play" onclick='pauseSong()' id="play"></i>
+                        <i class="fa fa-stop" onclick='stopSong()' id="stop"></i>
+                        <i class="fa fa-step-forward" onclick='next()'></i>
+                        <div class="volume">
+                            <i class="fa fa-volume-up" onclick='increaseVol()' id="increase-volume"></i>
+                            <i class="fa fa-volume-down" onclick='decreaseVol()' id="decrease-volume"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="music-progress">
                     <div class="progress">
-                        <div class="progress-bar">
-
-                        </div>
+                        <div id="fill-bar"></div>
                     </div>
                 </div>
             </div>
-        </div> {% endcomment %}
-    </div>
-
-    {% comment %} <div class="wrapper-list-song">
-        {% for song in songs %}
-        <div class="song-wrapper">
-            <div class="song-title">{{ song.title }}</div>
-            <div class="song">
-                <audio src="{{ song.songfile }}" controls></audio>
-            </div>
         </div>
-        {% endfor %}
-    </div> {% endcomment %}
-
-    {% comment %} <div class="portfolio-logo">
-        <img class="logo-player" src="/static/images/img/logo.png" alt="logo">
-        <div class="glow"></div>
-    </div> {% endcomment %}
-</div>
+    </div>
 </div>
 
 {% endblock  %}

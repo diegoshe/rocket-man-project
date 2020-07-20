@@ -7,12 +7,18 @@
 html {
     font-size: 10px;
     font-family: "Roboto Cn", sans-serif;
-    overflow: hidden;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
 }
 
 nav a {
-    text-decoration: none;
-    color: #eee;
+    text-decoration: none !important;
+    color: #eee !important;
 }
 
 header {
@@ -86,6 +92,8 @@ nav ul li a {
 }
 
 nav ul li a:last-child {
+    text-decoration: none;
+    color: #eee;
     margin-right: 0;
 }
 
@@ -135,25 +143,15 @@ nav ul li a:hover::after {
     background: url("/static/images/img/BackLogo.png") center no-repeat;
     background-size: cover;
     position: relative;
-    overflow: hidden;
-    z-index: -1;
-}
-/* ----------- портфолио ------------- */
-
-.back-portfolio {
-    width: 100%;
-    height: 100vh;
-    background: url("/static/images/img/back-city.jpeg") center no-repeat;
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+    z-index: -2;
 }
 
 .back-portfolio-cover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background:linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .5));
+    background: rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slideIn {
@@ -164,7 +162,7 @@ nav ul li a:hover::after {
     }
 }
 
-@media screen and (max-width: 760px) {
+/* @media screen and (max-width: 760px) {
 
     .menu-toggle {
         display: block;
@@ -204,4 +202,4 @@ nav ul li a:hover::after {
         opacity: 1;
     }
 
-}
+} */

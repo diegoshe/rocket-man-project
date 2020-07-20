@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/player.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static "images/img/favicon.png" %}">
 
-    <script src="{% static 'js/player.js' %}"></script>
-    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/styles.css' %}">
+
+    
+
+
 
     <title>{% block title %}Главная{% endblock %}</title>
 </head>
@@ -85,6 +90,8 @@
                 залетай в мою группу <a href="https://vk.com/rocketmanstudio">VK</a>.</p>
         </div>
     </footer> {% endcomment %}
+    <script src="{% static 'portfolio/js/player.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
 </body>
 
 </html>
