@@ -1,4 +1,6 @@
 import os
+import django_heroku
+django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +15,7 @@ SECRET_KEY = 'e+-!hm&@@&j1c&iuq(^0&zzt@-0(w=25s^!6%^b_2^!%w37ya-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['rocket-man-project.herokuapp.com']
 
 
 # Application definition
@@ -29,6 +31,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,3 +123,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'portfolio/static'),
     # os.path.join(BASE_DIR,'media'),
 ]
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
