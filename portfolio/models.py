@@ -30,3 +30,4 @@ class Soundtrack(models.Model):
     class Meta:
         verbose_name = 'Трек'
         verbose_name_plural = 'Треки'
+        db_table = 'soundtracks'
